@@ -1,0 +1,143 @@
+Semiconductors -> Transistors -> Logic Gates -> ICs -> Microprocessors -> FPGAs -> LUTs
+
+Section 1 Notes:
+
+	Semiconductor:	A material with a conductivity (ability to conduct electricity) between a conductor and and insulator. A semiconductor
+	Material	usually consists of a regular crystal lattice structure that has been doped (a process of adding impurities to the lattice)
+			in order to facilitate the flow of electrons. 
+
+			Semicondctors can be lightly or heavily doped, referring to the amount of impurites (dopant atoms) per the amount of
+			semiconductor material atoms. Semconductors can be p or n-doped:
+
+				p-type:	The lattice contains free holes in which electrons can fill
+				n-type:	The lattice contains free electrons instead of holes
+
+			In semiconductor devices, which can contain many layers of p and n-type materials, p-n junctions (boundaries between 
+			p-type and n-type materials) are responsible for the useful behavior of many semiconductor devices, such as the 
+			transistor.
+
+	Transistors:	A semiconductor device that can control the current or voltage flow in a circuit. They can also take a low amplitude
+			current and amplify it into a larger output. Transistors are usually used as switches with two states, on or off.
+			Transistor can be combined to create logic gates, and can be further combined into huge arrays called integrated
+			circuits (via miniaturization), which form the foundation of modern technology.
+
+			Frequency of a transistor refers to the amount of times a transistor can switch state per unit time. Modern transistors
+			can be measured in gigahertz (billions of switches per second)
+
+			Structure:
+
+			Transistors are usually made of silicon material and consist of three layers, the base, the emitter, and the collector.
+			They can be either NPN or PNP:
+
+				PNP:	n-type semiconductor layer between to p-type layers
+				NPN:	p-type layer between two n-type layers
+
+			The inner layer is referred to as the control electrode, as a small change in current or voltage at that layer causes
+			a large change throughout the device.
+
+				Emitter:	Heavily doped, emits electrons (supplies electrons to other layers)
+				Base:		Lightly doped, creates junctions in the transistor, passes carriers from emitter to collector
+				Collector:	Moderately doped, collects carriers from the emitter
+
+			Both PNP and NPN transistors have EBC's, however opposite flow.
+
+			Types:
+
+			The two main types of transistors are Bipolar Junction transistors (BJTs) and Field Effect transistors (FETs). 
+
+			BJTs can be either PNP or NPN type. current can flow through BJTs due to electrons and holes. PNP BJTs conduct electricity
+			through holes, while NPN BJTs do so through electron flow.
+
+			FETs also have three layers, the source, drain, and gate, analagous to the emitter, base, and collector, but the p-type and
+			n-type layers are different. FETs in while layers are coated with metal and oxide layer are called MOSFETs. They conduct the
+			flow of electricty through changes in field.
+
+			Other types of transitors are:	Junction Field Effect Transistors (JFETs), Thin Film Transistors (TFTs), Schottkey, diffusion.
+
+	Logic Gates:	Transistors can be combined together to create what are known as logic gates. Most logic gates take to inputs (except NOT)
+			and compare them to create a single output, using Boolean algebra. There are seven basic logic gates:
+
+				AND:	If both inputs are T, then output is T, otherwise F
+				OR:	If either input is T, then output is T, otherwise F
+				XOR:	If exactly one input is T, then output is T 
+				NOT:	Inverts the current input
+				NAND:	NOT + AND
+				NOR:	NOT + OR
+				XNOR:	NOT + XOR
+
+	Integrated:	Integrated circuits are huge arrays of semiconductor devices (transistors, resistors, capacitors, etc) all combined onto a
+	Circuits	single semiconductor surface. Each device is made up materials (semiconductor wafers, copper, etc) that all combine into 
+			what is called a die.
+
+			IC packages (which contain the microscopic dies) are connected to external circuits through pins (gold wire connectors)
+			The pins on a package are polarized, meaning they start from a certain point (indicated usually by a dot) and then count
+			up counter-clockwise from the first pin. Packages can either be through hole (larger with larger pins, PTH) or surface mount
+			(meant to be soldered directly to the board), referred to as SMDs. Dual in-line packages (DIP) are ICs with two parallel
+			rows of pins
+
+			Printed circuit boards (PCBs) are custom boards designed to have surface mounted ICs soldered directly to them.
+
+			Types of SMDs:
+
+				Small-outline (SOP):	Analagous to the DIP, smaller with the pins facing outward rather than downward.
+				Quad Flat Package:	Pins outwards on all sides of a square package
+				Quad Flat No Lead:	Tiny contacts on the bottom edges of the package instead of pins, smalles
+				-> (QFN)
+				Ball Grid Array (BGA):	Tiny balls of solder on the bottom of the package rather than pins or contacts
+
+			Types of ICs:
+
+				Logic Gates:	Built from a small amount of transistors, smallest unit of an IC, sometimes its own IC
+				Timers:		Basic logic circuitry, can be made from a relatively small amount of logic gates
+				-> Counters
+				-> Shift Registers
+				-> Latches
+				
+				Microcontrollers, Microprocessors, FPGAs, etc:
+					
+					Large ICs, containing millions and billions of transistors. Between 8-100 pins and 1000s of pins for
+					FPGAs and other very complex microprocessors.
+
+					Microprocessor consist of a small computer contained within an IC, whereas although a microcontroller
+					is also a small computer, it is optimized for controlling a small electronic component.
+
+				Sensors:	Small ICs that can be used to measure temperature, speed, rotation, alcohol etc.
+
+	Microprocessor:	An integrated circuit that can load and execute program instructions (based on a certain instruction set architecture)
+
+			Structure:
+
+				Arithemetic Logic Unit (ALU):	Performs addition, subtraction, and basic logic operations. Operations happen
+								sequentially, and each operations generates a flag (represented by a bit field)
+								which indicates to the next operation the result of that operation.
+
+								The operation flags are stored in a status register.
+
+				Control Logic Section:		Responsible for retrieving instructions from memory and sending them to the ALU
+								in the form of operations to be performed.
+
+				Register:			Memory storage for the processor. The Control Logic Section retrieves data from
+								larger stores of memory lower in the memory hierarchy, and loads it into the
+								register.
+
+			Microprocessors use words as a basic unit of data. When the control logic section retrieves data from memory, it does so
+			by storing words into a register. Registers are measured by the size of their respective words (32-bit register, 64-bit, etc.)
+
+
+	Field:		An integrated circuit that can be programmed (or configured) to behave like any other circuit. The hardware of an FPGA is 
+	Programmable	directed by the programmer using a hardware description language (HDL). 
+	Gate Arrays
+	(FPGAs)		FPGAs can only be programmed to behave like digital circuits, which are circuits that only compute using 0s and 1s
+			(represented by either a 0 V or a <upper bound> V signal). FPGAs represent these digital circuits using gigantic
+			and complex arrays of logic gates.
+
+			One of the most fundamental components of the FPGA is the multiplexer, a device that take in multiple inputs, and selects
+			one of those inputs to become the output. Simple multiplexers select the output using something called one-hot encoding.
+
+			A one-hot encoded array of binary numbers has only one 1. So, for example, if 5 in binary is 101, its one-hot encoding 
+			is 00100000, this binary representation only has one 1. When multiplexers are chained together in large arrays, they can
+			control the path a signal takes in a circuit, this is how FPGAs are able to represent many different kinds of circuits
+			(Basic idea, extreme oversimplification).
+
+	Lookup tables:	A predetermined set of inputs and outputs
+	(LUTs)
